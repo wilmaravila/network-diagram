@@ -1,13 +1,26 @@
-export default function ActivityForm({addActivity}){
+export default function ActivityForm({addActivity,activities}){
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        console.log(event.tarjet);
-        const activityName = event.tarjet.name.value;
-        const activityDuration = event.tarjet.duration.value;
-        console.log(activityDuration);
-        console.log(activityName);
+        
+        
+        const activityName = event.target.activityName.value;
+        const activityDuration = Number(event.target.duration.value);
+       
+        const checkboxes = event.target.querySelectorAll('input[type="checkbox"]')
+        const selectedCheckboxes = Array.from(checkboxes).filter((checkbox) => {
+            return checkbox.checked;
+        });
+        const selectedActivities = selectedCheckboxes.map(checkbox => checkbox.value)
 
+        
+        const newActivity ={
+            name: activityName,
+            duration: activityDuration,
+            predecessors: selectedActivities
+        }
+        addActivity(newActivity)
+        event.target.reset();
     }
 
 
@@ -18,17 +31,20 @@ export default function ActivityForm({addActivity}){
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="activityName">Nombre de la Tarea</label>
-                <input type="text" name="name" id="activityName" />
+                <input type="text" name="activityName" id="activityName" />
                 <label htmlFor="duration" > Duracion </label>
                 <input type="number" name="duration" id="duration" />
                 <label htmlFor="predecessors">Predecesores</label>
-                <select name="predecessors" id="predecessors" multiple>
 
-                    <option></option>
-                </select>
+                {activities.map((activity)=>
+                <label key={activity.id}>
+                    <input  type="checkbox" value={activity.id}/>{activity.id}
+                    
+                </label>
+                )}
 
 
-                <button type="submit">Agregar actividad</button>
+                <button >Agregar actividad</button>
             </form>
 
 

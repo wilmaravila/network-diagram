@@ -1,14 +1,20 @@
-export default function ActivityList(){
+export default function ActivityList({activities}){
     return(
         <>
-        <h2>Actividades creadas</h2>
+        <h2>Actividades creadas {activities.length}</h2>
+        {activities.map((activity) =>
+            
+            <div key={activity.id}>
+                <p>ID: {activity.id}</p>
+                <p>NOMBRE ACTIVIDAD: {activity.name}</p>
+                <p>DURACION ACTIVIDAD: {activity.duration}</p>
 
-        <div>
-            <p>id</p>
-            <p>nombre</p>
-            <p>dias</p>
-        </div>
-        
+                <p>PREDECESOR:
+                    {activity.predecessors}
+                </p>
+            </div>
+            
+        )}
         
         
         
