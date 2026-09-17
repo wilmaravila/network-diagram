@@ -4,6 +4,7 @@ import ActivityPanel from "./components/ActivityPanel/ActivityPanel"
 import Diagram from "./components/Diagram/Diagram"
 import Results from "./components/Results/Results"
 import {  useState } from "react"
+import './App.css'
 
 function App() {
 
@@ -38,8 +39,11 @@ function App() {
       <Header/>
       <main>
         <ProjectInfo/>
+        <div className="content-activities-diagram">
         <ActivityPanel addActivity ={addActivity} activities={activities}/>
+          
         <Diagram activities={activities}/>
+        </div>
         <Results/>
       </main>
     </>

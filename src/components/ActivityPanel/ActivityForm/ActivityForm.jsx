@@ -1,3 +1,6 @@
+import './ActivityForm.css'
+
+
 export default function ActivityForm({addActivity,activities}){
 
     const handleSubmit = (event)=>{
@@ -26,7 +29,7 @@ export default function ActivityForm({addActivity,activities}){
 
     return(
 
-        <>
+        <div className='content-activity-form'>
             <h2>Actividades</h2>
             <form onSubmit={handleSubmit}>
 
@@ -35,13 +38,15 @@ export default function ActivityForm({addActivity,activities}){
                 <label htmlFor="duration" > Duracion </label>
                 <input type="number" name="duration" id="duration" />
                 <label htmlFor="predecessors">Predecesores</label>
+                <div className='content-predecessors'>
 
-                {activities.map((activity)=>
-                <label key={activity.id}>
-                    <input  type="checkbox" value={activity.id}/>{activity.id}
-                    
-                </label>
-                )}
+                    {activities.map((activity)=>
+                    <label key={activity.id}>
+                        <input  type="checkbox" value={activity.id}/>{activity.id}
+                        
+                    </label>
+                    )}
+                </div>
 
 
                 <button >Agregar actividad</button>
@@ -53,6 +58,6 @@ export default function ActivityForm({addActivity,activities}){
         
         
         
-        </>
+        </div>
     )
 }

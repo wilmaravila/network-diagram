@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+.content-activity-form{
+    flex: 1;
+
+
+
+}
+.content-predecessors{
+    max-height: 50px;
+    overflow-y: auto;
+    
+   
+
+}
+.content-predecessors label{
+    border: solid 1px;
+    
+
+}

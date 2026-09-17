@@ -12,10 +12,11 @@ export default function Diagram({activities}){
     } 
    
     const levels = {}
+    //guarda el nivel y muestra cuantos hay en ese nivel
     const levelsPosition ={}
 
-    const nodo = activities.map((activity,index)=>{
-
+    const nodo = activities.map((activity)=>{
+        
         let level;
         if(activity.predecessors.length === 0){
             level = 0 
@@ -24,6 +25,7 @@ export default function Diagram({activities}){
           const selectProdecessorsNumber =  activity.predecessors.map((predecesor)=>{
                 return levels[predecesor]
             })
+            console.log('que sale aqui')
             console.log(selectProdecessorsNumber)
 
            const higherLevel =selectProdecessorsNumber.reduce(( acumulador, number)=>{
@@ -34,14 +36,25 @@ export default function Diagram({activities}){
                 }
                 return acumulador
            }) 
-           levels[activity.id] = higherLevel +1
-           console.log(higherLevel +'este el nivel mayor')
+           level = higherLevel + 1
+           levels[activity.id] = level
+           
         }
-        console.log(levels)
+        console.log(levels )
+        console.log(levelsPosition )
+        if(levelsPosition[level]===undefined){
+             levelsPosition[level]= 0
+        }
+        const positionY = levelsPosition[level] *250;
+       
+        
+        console.log(positionY)
+
+        levelsPosition[level] += 1;
 
         return{
             id: activity.id,
-            position: {x:levels[activity.id] * 250,y:index *150},
+            position: {x:levels[activity.id] * 250,y:positionY},
             type:"activity",
             data: {
                 id: activity.id,
@@ -73,16 +86,16 @@ export default function Diagram({activities}){
 
   
     return(
-        <section>
+        <section className="section-diagram">
 
             <h2>Diagrama del proyecto</h2>
             
 
-                <div id="diagram" className="content-diagram">
-                <ReactFlow nodes={nodo} edges={edges} nodeTypes={nodeTypes}/>
+            <div id="diagram" className="content-diagram">
+                <ReactFlow className="react-flow" nodes={nodo} edges={edges} nodeTypes={nodeTypes}/>
                 
 
-                </div>
+            </div>
                     
 
 

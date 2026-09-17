@@ -1,4 +1,13 @@
 .content-diagram{
+    width: 100;
+    height: 89%;
+}
+.section-diagram{
+    border: solid 1px;
+    flex:3;
+    height: 600px;
+}
+.react-flow{
     width: 100%;
-    height: 500px;
+    height: 100%;
 }
