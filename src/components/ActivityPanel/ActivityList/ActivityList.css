@@ -1,7 +1,29 @@
 .content-activity-list{
     flex: 2;
     overflow-y: auto;
+}
 
-   
+.content-title{
+ display: flex;
 
+ height: 40px;
+ 
+}
+
+.content-title-activity{
+    width: 38rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: grey;
+    position: fixed;
+    
+    
+}
+.content-activity{
+    border: solid 1px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 8px 4px 4px 1px gray;
 }

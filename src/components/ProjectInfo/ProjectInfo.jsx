@@ -1,11 +1,18 @@
+import './ProjectInfo.css'
 export default function ProjectInfo(){
     return(
-        <>
+        <div className="content-info-project">
             <form action="">
-                <label htmlFor="projectName">Nombre del Proyecto</label>
-                <input type="text" name="projectName" id="projectName" />
-                <label htmlFor="description">Descripción del proyecto</label>
-                <textarea name="description" id="description"></textarea>
+                <div className='content-inputs'>
+                    <label htmlFor="projectName">Nombre del Proyecto</label>
+                    <input type="text" name="projectName" id="projectName" />
+
+                </div>
+                <div className='content-inputs'>
+
+                    <label htmlFor="description">Descripción del proyecto</label>
+                    <textarea name="description" id="description"></textarea>   
+                </div>
 
 
 
@@ -14,6 +21,6 @@ export default function ProjectInfo(){
         
         
         
-        </>
+        </div>
     )
 }

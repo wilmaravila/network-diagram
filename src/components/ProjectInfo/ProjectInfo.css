@@ -1,0 +1,8 @@
+.content-info-project form{
+    display: flex;
+    flex-direction: row;
+}
+.content-inputs{
+    display: flex;
+    flex-direction: column;
+}

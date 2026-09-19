@@ -3,3 +3,12 @@
   flex-direction: row;
 
 }
+.content-header{
+  display: flex;
+}
+body{
+  background: var(--background-principal);
+  width: 100vw;
+  height: 100vh;
+  color: white;
+}
