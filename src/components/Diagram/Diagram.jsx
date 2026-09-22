@@ -1,5 +1,5 @@
 
-import { ReactFlow } from "@xyflow/react"
+import { ReactFlow,Controls,Background } from "@xyflow/react"
 import '@xyflow/react/dist/style.css'
 import './Diagram.css'
 import ActivityNode from "./ActivityNode"
@@ -87,12 +87,18 @@ export default function Diagram({activities}){
   
     return(
         <section className="section-diagram">
+            <div className="content-title">
 
-            <h2>Diagrama del proyecto</h2>
+
+                <h2>Diagrama del proyecto</h2>
+            </div>
             
 
             <div id="diagram" className="content-diagram">
-                <ReactFlow className="react-flow" nodes={nodo} edges={edges} nodeTypes={nodeTypes}/>
+                <ReactFlow className="react-flow" nodes={nodo} edges={edges} nodeTypes={nodeTypes} fitView>
+                    <Controls/>
+                    <Background/>
+                </ReactFlow>
                 
 
             </div>

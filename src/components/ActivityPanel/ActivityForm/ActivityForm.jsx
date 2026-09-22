@@ -30,27 +30,36 @@ export default function ActivityForm({addActivity,activities}){
     return(
 
         <div className='content-activity-form'>
-            <h2>Actividades</h2>
-            <form onSubmit={handleSubmit}>
+            <div className='content-title'>
+                <h2>Actividades </h2>
+                <div className='content-total'>
+                    <p>Total: {activities.length}</p>
 
-                <label htmlFor="activityName">Nombre de la Tarea</label>
-                <input type="text" name="activityName" id="activityName" />
-                <label htmlFor="duration" > Duracion </label>
-                <input type="number" name="duration" id="duration" />
-                <label htmlFor="predecessors">Predecesores</label>
-                <div className='content-predecessors'>
-
-                    {activities.map((activity)=>
-                    <label key={activity.id}>
-                        <input  type="checkbox" value={activity.id}/>{activity.id}
-                        
-                    </label>
-                    )}
                 </div>
+            </div>
+            <div className='content-form'>
+
+                <form onSubmit={handleSubmit}>
+
+                    <label htmlFor="activityName">Nombre de la Tarea</label>
+                    <input type="text" name="activityName" id="activityName" className='input-fixed' />
+                    <label htmlFor="duration" > Duracion </label>
+                    <input type="number" name="duration" id="duration" className='input-fixed' />
+                    <label htmlFor="predecessors">Predecesores</label>
+                    <div className='content-predecessors'>
+
+                        {activities.map((activity)=>
+                        <label key={activity.id}>
+                            <input  type="checkbox" value={activity.id}/>{activity.id}
+                            
+                        </label>
+                        )}
+                    </div>
 
 
-                <button >Agregar actividad</button>
-            </form>
+                    <button className='button-add-activity'>Agregar actividad</button>
+                </form>
+            </div>
 
 
 

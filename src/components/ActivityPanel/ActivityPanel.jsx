@@ -5,8 +5,8 @@ import './ActivityPanel.css'
 export default function ActivityPanel({addActivity, activities}){
     return(
         <section className="content-activities">
-            <ActivityForm  addActivity ={addActivity} activities ={activities} />
-            <ActivityList activities ={activities}/>
+            <ActivityForm   addActivity ={addActivity} activities ={activities} />
+            <ActivityList  activities ={activities}/>
         
         </section>
     )

@@ -37,17 +37,18 @@ function App() {
   return (
     <div className="content-app">
      <header className="content-header">
-
       <Header/>
       <ProjectInfo/>
      </header>
       <main>
         <div className="content-activities-diagram">
-          <ActivityPanel addActivity ={addActivity} activities={activities}/>
-          <div>
-            
-          <Diagram activities={activities}/>
-           <Results/>
+          <div className="content-activity-panel">
+
+          <ActivityPanel  addActivity ={addActivity} activities={activities}/>
+          </div>
+          <div className="content-results">
+            <Diagram className='diagram' activities={activities}/>
+            <Results className='results'/>
           </div>
         </div>
       </main>
